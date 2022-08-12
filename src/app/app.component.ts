@@ -22,6 +22,9 @@ export function layoutToggle(): Observable<LayoutType>{
 export class AppComponent{
   layoutType!: LayoutType;
 
+  /**
+   * @param localStorage Adds support to persist the layoutType between page reloads
+   */
   constructor(private localStorage: LocalStorageService) {
     this.localStorage.setLayoutType(
       this.localStorage.getLayoutType() ?? LayoutType.COLUMN_GRID
