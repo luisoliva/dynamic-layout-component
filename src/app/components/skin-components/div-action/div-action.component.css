@@ -1,0 +1,18 @@
+.div-item{
+  background-color: #005aa4;
+  flex-grow: 1;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.div-container{
+  display: flex;
+  height: auto;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+.button-item{
+  background-color: #307c01;
+  flex-grow: 1;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container{
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
