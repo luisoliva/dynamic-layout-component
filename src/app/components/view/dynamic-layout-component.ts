@@ -2,7 +2,7 @@ import {Component, OnInit, Type, ViewChild} from '@angular/core';
 import {DynamicHostTemplate} from '../../directives/dynamic-component-host.directive';
 import {layoutToggle} from '../../app.component';
 import {LayoutType} from '../../services/local-storage.service';
-import {DynamicComponentSpec} from './dynamic-component-spec';
+import {DynamicComponentSpec} from './dynamic-component-spec.model';
 
 /**
  * This class should be extended in all dynamic components, it will provide common behavior and ensure every

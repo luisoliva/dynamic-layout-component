@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {DynamicLayoutComponent} from '../dynamic-layout-component';
-import {DynamicComponentSpec} from '../dynamic-component-spec';
+import {DynamicComponentSpec} from '../dynamic-component-spec.model';
 import {ButtonActionComponent} from '../../skin-components/button-action/button-action.component';
 import {DivActionComponent} from '../../skin-components/div-action/div-action.component';
 
