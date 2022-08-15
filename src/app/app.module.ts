@@ -3,20 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {DynamicLayoutViewComponent} from './components/view/dynamic-layout-view/dynamic-layout-view.component';
 import {DynamicHostTemplate} from './directives/dynamic-component-host.directive';
-import {BaseDynamicComponent} from './components/skin-components/base-dynamic-component';
-import {DivActionComponent} from './components/skin-components/div-action/div-action.component';
-import {ButtonActionComponent} from './components/skin-components/button-action/button-action.component';
+import {RowLayoutComponent} from './components/grid/row-layout/row-layout.component';
+import {ColumnLayoutComponent} from './components/grid/column-layout/column-layout.component';
+import {GridComponent} from './components/grid/grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicLayoutViewComponent,
-    ButtonActionComponent,
-    DivActionComponent,
+    RowLayoutComponent,
+    ColumnLayoutComponent,
     DynamicHostTemplate,
-    BaseDynamicComponent
+    GridComponent
   ],
   imports: [
     BrowserModule,
