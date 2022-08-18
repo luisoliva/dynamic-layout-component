@@ -20,10 +20,4 @@ export class GridComponent extends DynamicLayoutComponent{
       columnLayoutComponentType: ColumnLayoutComponent
     };
   }
-
-
-  ngOnInitSequel() {
-    //common ngOnInit logic can be added here. Logic that will apply for any Grid layout implementation
-    console.log('Im the onInit sequel from GridComponent')
-  }
 }

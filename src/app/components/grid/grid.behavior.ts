@@ -9,6 +9,7 @@ import {LoggerService} from '../../services/logger.service';
 @Directive()
 export abstract class GridBehavior {
 
+
   constructor(protected logger: LoggerService) {}
 
   performAction(event: MouseEvent){

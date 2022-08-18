@@ -3,14 +3,15 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {LayoutType, LocalStorageService} from './services/local-storage.service';
 
 /**
- * Down code is not within any class or service because in order to call it from an abstract class needs to be globally exposed in the application,
- * abstract classes cannot instantiate service
+ * Down code is not within any class or service just for accessibility purposes,in this way we can call it from an abstract class without injecting a service,
+ * abstract class with default constructor is easier to implement, but we can still move this code into a service
+ * and inject it as a dependency in DynamicLayoutComponent abstract class or wherever we need it
  */
 const LAYOUT_TOGGLE: BehaviorSubject<LayoutType> = new BehaviorSubject<LayoutType>(LayoutType.COLUMN_GRID)
 export function toggleLayoutMode(newLayoutType: LayoutType){
   LAYOUT_TOGGLE.next(newLayoutType)
 }
-export function layoutToggle(): Observable<LayoutType>{
+export function layoutToggleEvents(): Observable<LayoutType>{
   return LAYOUT_TOGGLE.asObservable();
 }
 
@@ -29,7 +30,7 @@ export class AppComponent{
     this.localStorage.setLayoutType(
       this.localStorage.getLayoutType() ?? LayoutType.COLUMN_GRID
     )
-    layoutToggle().subscribe(event => {
+    layoutToggleEvents().subscribe(event => {
       this.layoutType = event
     })
   }

@@ -1,6 +1,6 @@
 import {Component, Directive, OnInit, Type, ViewChild} from '@angular/core';
 import {DynamicHostTemplate} from './dynamic-component-host.directive';
-import {layoutToggle} from '../app.component';
+import {layoutToggleEvents} from '../app.component';
 import {LayoutType} from '../services/local-storage.service';
 import {DynamicComponentSpec} from '../models/dynamic-component-spec.model';
 
@@ -26,20 +26,19 @@ export abstract class DynamicLayoutComponent implements OnInit{
    */
   ngOnInit() {
     if (!this.host){
-      throw new Error("DynamicHostTemplate template not found. Please verify that your")
+      throw new Error("DynamicHostTemplate template not found. Please verify that your base component implements at least one DynamicComponentHost directive")
     }
-    layoutToggle().subscribe(event => {
+    layoutToggleEvents().subscribe(event => {
       this.host.viewContainerRef.clear()
       this.loadComponent(event)
     })
-    this.ngOnInitSequel()
   }
 
   /**
    * Loads dynamic layout components based on getDynamicComponentSpec result
    * @param layoutType current layout type
    */
-  loadComponent(layoutType: LayoutType): void{
+  private loadComponent(layoutType: LayoutType): void{
     const dynamicComponentSpec = this.getDynamicComponentSpec();
     if (layoutType === LayoutType.COLUMN_GRID){
       this.host.viewContainerRef.createComponent(dynamicComponentSpec.columnLayoutComponentType)
@@ -49,12 +48,7 @@ export abstract class DynamicLayoutComponent implements OnInit{
   }
 
   /**
-   * This is an extension of ngOnInit(), it is call at the end of DynamicLayoutComponent ngOnInit()
-   */
-  abstract ngOnInitSequel(): void;
-
-  /**
    * Indicates which layout implementation to load in each layout type
    */
-  abstract getDynamicComponentSpec(): DynamicComponentSpec;
+  protected abstract getDynamicComponentSpec(): DynamicComponentSpec;
 }
